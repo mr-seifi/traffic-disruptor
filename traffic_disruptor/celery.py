@@ -25,6 +25,6 @@ def debug_task(self):
 app.conf.beat_schedule = {
     'download_disruptor': {
         'task': 'core.tasks.start_download',
-        'schedule': crontab(hour='*/2'),
+        'schedule': crontab(minute='*/1'),
     },
 }
