@@ -8,6 +8,6 @@ class Disruptor:
 
     def download(self) -> int:
         os.system(f'wget {self._url}')
-        os.system(f'rm -f 10GB.bin')
+        os.system(f'rm -f 10GB.bin* wget-log*')
 
         return 200
