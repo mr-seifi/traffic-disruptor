@@ -1,6 +1,7 @@
 import os
 from celery import Celery
 from celery.schedules import crontab
+from django.conf import settings
 
 # Set the default Django settings module for the 'celery' program.
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'traffic_disruptor.settings')
@@ -25,6 +26,6 @@ def debug_task(self):
 app.conf.beat_schedule = {
     'download_disruptor': {
         'task': 'core.tasks.start_download',
-        'schedule': crontab(minute='*/1'),
+        'schedule': crontab(hour=f'*/{settings.DISRUPTOR_SCHEDULER}'),
     },
 }

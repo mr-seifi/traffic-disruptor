@@ -10,6 +10,11 @@ logging.basicConfig(filename='disruptor.log',
 @shared_task
 def start_download():
     disruptor = Disruptor()
+
+    logging.info(
+        'Download started.'
+    )
+
     status_code = disruptor.download()
 
     logging.info(
