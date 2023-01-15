@@ -1,4 +1,4 @@
-import requests
+import os
 
 
 class Disruptor:
@@ -7,8 +7,7 @@ class Disruptor:
         self._url = 'https://speed.hetzner.de/10GB.bin'
 
     def download(self) -> int:
-        r = requests.get(
-            self._url
-        )
+        os.system(f'wget {self._url}')
+        os.system(f'rm -f 10GB.bin')
 
-        return r.status_code
+        return 200
